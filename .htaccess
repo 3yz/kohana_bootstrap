@@ -251,6 +251,6 @@ AddCharset utf-8 .html .css .js .xml .json .rss .atom
   php_value session.cookie_httponly true
 </IfModule>
 
-RewriteBase /projetos/3yz/romanzza_2012_institucional/
+RewriteBase /
 
 SetEnv KOHANA_ENV DEVELOPMENT
