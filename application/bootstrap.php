@@ -81,19 +81,23 @@ if (isset($_SERVER['KOHANA_ENV']))
  */
 switch (Kohana::$environment) {
 case Kohana::DEVELOPMENT:
-  $base_url = '/';
+  $base_url = '/projetos/3yz/kohana_bootstrap/';
+  $profile = true;
   break;
  case Kohana::TESTING:
   $base_url = '/';
+  $profile = true;
   break;
 default:
   $base_url = '/';
+  $profile = false;
   break;
 }
 
 Kohana::init(array(
 	'base_url'   => $base_url,
-	'index_file' => false //remove index file
+  'index_file' => false, 
+	'profile'    => $profile,
 ));
 
 /**
@@ -115,7 +119,7 @@ Kohana::modules(array(
 	// 'codebench'  => MODPATH.'codebench',  // Benchmarking tool
 	'database'   => MODPATH.'database',   // Database access
 	// 'image'      => MODPATH.'image',      // Image manipulation
-	'orm'        => MODPATH.'orm',        // Object Relationship Mapping
+  'orm'        => MODPATH.'orm',        // Object Relationship Mapping
 	// 'unittest'   => MODPATH.'unittest',   // Unit testing
 	// 'userguide'  => MODPATH.'userguide',  // User guide and API documentation
 	));
