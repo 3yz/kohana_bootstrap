@@ -7,13 +7,13 @@ require SYSPATH.'classes/kohana/core'.EXT;
 
 if (is_file(APPPATH.'classes/kohana'.EXT))
 {
-	// Application extends the core
-	require APPPATH.'classes/kohana'.EXT;
+  // Application extends the core
+  require APPPATH.'classes/kohana'.EXT;
 }
 else
 {
-	// Load empty core extension
-	require SYSPATH.'classes/kohana'.EXT;
+  // Load empty core extension
+  require SYSPATH.'classes/kohana'.EXT;
 }
 
 /**
@@ -22,7 +22,7 @@ else
  * @see  http://kohanaframework.org/guide/using.configuration
  * @see  http://php.net/timezones
  */
-date_default_timezone_set('America/Chicago');
+date_default_timezone_set('America/Sao_Paulo');
 
 /**
  * Set the default locale.
@@ -53,7 +53,7 @@ ini_set('unserialize_callback_func', 'spl_autoload_call');
 /**
  * Set the default language
  */
-I18n::lang('en-us');
+I18n::lang('pt-br');
 
 /**
  * Set Kohana::$environment if a 'KOHANA_ENV' environment variable has been supplied.
@@ -63,7 +63,7 @@ I18n::lang('en-us');
  */
 if (isset($_SERVER['KOHANA_ENV']))
 {
-	Kohana::$environment = constant('Kohana::'.strtoupper($_SERVER['KOHANA_ENV']));
+  Kohana::$environment = constant('Kohana::'.strtoupper($_SERVER['KOHANA_ENV']));
 }
 
 /**
@@ -95,9 +95,9 @@ default:
 }
 
 Kohana::init(array(
-	'base_url'   => $base_url,
+  'base_url'   => $base_url,
   'index_file' => false, 
-	'profile'    => $profile,
+  'profile'    => $profile,
 ));
 
 /**
@@ -114,15 +114,12 @@ Kohana::$config->attach(new Config_File);
  * Enable modules. Modules are referenced by a relative or absolute path.
  */
 Kohana::modules(array(
-	// 'auth'       => MODPATH.'auth',       // Basic authentication
-	// 'cache'      => MODPATH.'cache',      // Caching with multiple backends
-	// 'codebench'  => MODPATH.'codebench',  // Benchmarking tool
-	'database'   => MODPATH.'database',   // Database access
-	// 'image'      => MODPATH.'image',      // Image manipulation
-  'orm'        => MODPATH.'orm',        // Object Relationship Mapping
-	// 'unittest'   => MODPATH.'unittest',   // Unit testing
-	// 'userguide'  => MODPATH.'userguide',  // User guide and API documentation
-	));
+  'auth'         => MODPATH.'auth',
+  'activerecord' => MODPATH.'activerecord',
+  'database'     => MODPATH.'database',
+  'manager'      => MODPATH.'manager',
+  'notice'       => MODPATH.'notice',
+));
 
 // Define global paths
 define('PUBLIC_PATH', DOCROOT.'public/');
@@ -130,3 +127,5 @@ define('UPLOAD_PATH', PUBLIC_PATH.'uploads/');
 
 // Load Routes
 require APPPATH.'routes'.EXT;
+
+Notice::$message_file = 'notice/base';
