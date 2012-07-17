@@ -27,4 +27,4 @@
 	url = https://github.com/Austinb/Mailer.git
 [submodule "modules/activerecord"]
 	path = modules/activerecord
-	url = https://github.com/devi/kohana-activerecord.git
+	url = https://github.com/3yz/kohana-activerecord.git
