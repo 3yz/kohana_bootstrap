@@ -29,7 +29,7 @@
             <?php echo Html::anchor('manager/users', 'Usuários') ?>
           </li>          
           <?php foreach(Kohana::$config->load('manager.menu') as $item): ?>
-          <li>
+          <li class="<?php echo Request::current()->controller() == $item['controller'] ? 'active' : null ?>">
             <?php echo Html::anchor($item['url'], $item['title']); ?>
           </li>
           <?php endforeach; ?>
