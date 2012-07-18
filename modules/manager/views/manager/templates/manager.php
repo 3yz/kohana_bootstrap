@@ -19,7 +19,8 @@
   <div class="navbar navbar-fixed-top">
     <div class="navbar-inner">
       <div class="container">
-        <?php echo Html::anchor('manager', 'Admin', array('class' => 'brand')) ?>
+        <?php echo Html::anchor('manager', Kohana::$config->load('manager.title'), array('class' => 'brand')) ?>
+        <?php if(Auth::instance()->logged_in()): ?>
         <ul class="nav">
           <li class="<?php echo Request::current()->controller() == 'dashboard' ? 'active' : null ?>">
             <?php echo Html::anchor('manager', 'Dashboard') ?>
@@ -27,10 +28,16 @@
           <li class="<?php echo Request::current()->controller() == 'users' ? 'active' : null ?>">
             <?php echo Html::anchor('manager/users', 'Usuários') ?>
           </li>          
+          <?php foreach(Kohana::$config->load('manager.menu') as $item): ?>
+          <li>
+            <?php echo Html::anchor($item['url'], $item['title']); ?>
+          </li>
+          <?php endforeach; ?>
         </ul>
         <ul class="nav pull-right">
           <li><?php echo Html::anchor('manager/logout', 'Sair') ?></li>
         </ul>
+        <?php endif; ?>
       </div>
     </div>
   </div>

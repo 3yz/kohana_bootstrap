@@ -5,7 +5,7 @@ class Controller_Manager_Users extends Controller_Manager_Application {
   public function before(){
     parent::before();
 
-    $this->template->title .= ' - usuários';
+    $this->template->title .= ' - Usuários';
     if(!Auth::instance()->logged_in('admin'))
     {
       $this->request->redirect('manager/dashboard');

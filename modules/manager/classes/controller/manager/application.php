@@ -4,7 +4,7 @@ class Controller_Manager_Application extends Controller_Template {
   
   public $template = 'manager/templates/manager';
   public $view = null;
-  public $title = 'Manager';
+  public $title = '';
   
   public function before(){
     parent::before();
@@ -13,6 +13,9 @@ class Controller_Manager_Application extends Controller_Template {
       return $this->request->redirect('manager/login');
     }
     
+    $this->config = Kohana::$config->load('manager');
+    $this->title = Kohana::$config->load('manager.title');
+
     if ($this->auto_render) {
       $this->template->styles = array();
       $this->template->scripts = array();
