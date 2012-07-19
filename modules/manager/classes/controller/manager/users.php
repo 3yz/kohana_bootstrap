@@ -155,11 +155,11 @@ class Controller_Manager_Users extends Controller_Manager_Application {
   }
   
   public function action_delete(){
-    $user = ORM::factory('user', $this->request->param('id'));
-    if($user->loaded())
-    {
-      $user->delete();
+    $user = User::find($this->request->param('id'));
+    if($benefit->delete()){
+      Notice::add(Notice::INFO, 'Item excluído com sucesso');
     }
+
     $this->request->redirect('manager/users');
   }
 
@@ -168,10 +168,7 @@ class Controller_Manager_Users extends Controller_Manager_Application {
     if($this->request->post('action') == 'delete'){
       if($ids = $this->request->post('id'))
       {
-        foreach ($ids as $id) {
-          $user = ORM::factory('user', $id);
-          $user->delete();
-        }
+        User::table()->delete(array('id' => $ids));
         Notice::add(Notice::INFO, count($ids) . ' item(s) excluído(s) com sucesso');
       }
     }
