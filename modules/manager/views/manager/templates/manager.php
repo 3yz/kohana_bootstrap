@@ -29,8 +29,17 @@
             <?php echo Html::anchor('manager/users', 'Usuários') ?>
           </li>          
           <?php foreach(Kohana::$config->load('manager.menu') as $item): ?>
-          <li class="<?php echo Request::current()->controller() == $item['controller'] ? 'active' : null ?>">
-            <?php echo Html::anchor($item['url'], $item['title']); ?>
+          <li class="<?php echo (count($item['itens']) > 0) ? 'dropdown' : '' ?> <?php echo Request::current()->controller() == $item['controller'] ? 'active' : '' ?>">
+            <?php if(count($item['itens']) > 0): ?>
+              <?php echo Html::anchor('#', $item['title'] . '<b class= "caret"></b>', array('class' => 'dropdown-toggle', 'data-toggle' => 'dropdown')); ?>
+              <ul class="dropdown-menu">
+                <?php foreach($item['itens'] as $subitem): ?>
+                  <li><?php echo Html::anchor($subitem['url'], $subitem['title']); ?></li>
+                <?php endforeach; ?>
+              </ul>
+            <?php else: ?>
+              <?php echo Html::anchor($item['url'], $item['title']); ?>
+            <?php endif; ?>
           </li>
           <?php endforeach; ?>
         </ul>

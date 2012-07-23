@@ -41,7 +41,9 @@ class User extends Arm {
   
   public function filters()
   {
-    $this->password = Auth::instance()->hash($this->password);
+    if ($this->is_dirty() AND array_key_exists('password', $this->dirty_attributes())){
+      $this->password = Auth::instance()->hash($this->password);
+    }
   } 
   
   /**
