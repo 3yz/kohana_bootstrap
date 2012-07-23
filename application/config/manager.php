@@ -2,33 +2,40 @@
 
 return array
 (
-  'title' => 'website title',
+  'title' => 'Manager',
   'menu'  => array(
     array(
-      'title'      => 'Teste 1',
-      'controller' => 'controller',
-      'url'   => 'teste/teste',
-      'itens' => array()
+      'title' => 'Dashboard',
+      'controller' => 'dashboard',
+      'url'   => 'manager/dashboard',
+      'itens' => array(),
+      'roles' => array()
     ),
     array(
-      'title' => 'Teste 2',
-      'controller' => 'controller',
-      'url'   => 'teste/teste',
-      'itens' => array()
+      'title' => 'Usuários',
+      'controller' => 'users',
+      'url'   => 'manager/users',
+      'itens' => array(),
+      'roles' => array('admin')
     ),
     array(
-      'title' => 'Submenu',
-      'controller' => 'controller',
+      'title' => 'Perguntas',
+      'controller' => 'questions',
       'itens' => array(
         array(
-          'title' => 'Teste 2',
-          'url'   => 'teste/teste',
+          'title' => 'Aguardando Resposta',
+          'url'   => 'manager/questions?type=waiting'
         ),
         array(
-          'title' => 'Teste 2',
-          'url'   => 'teste/teste',
-        )
-      )
+          'title' => 'Respondidas',
+          'url'   => 'manager/questions?type=answered'
+        ),
+        array(
+          'title' => 'Inválidas',
+          'url'   => 'manager/questions?type=invalid'
+        ),
+      ),
+      'roles' => array()
     )
   )
 );

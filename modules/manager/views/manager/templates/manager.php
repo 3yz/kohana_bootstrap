@@ -21,16 +21,11 @@
       <div class="container">
         <?php echo Html::anchor('manager', Kohana::$config->load('manager.title'), array('class' => 'brand')) ?>
         <?php if(Auth::instance()->logged_in()): ?>
-        <ul class="nav">
-          <li class="<?php echo Request::current()->controller() == 'dashboard' ? 'active' : null ?>">
-            <?php echo Html::anchor('manager', 'Dashboard') ?>
-          </li> 
-          <li class="<?php echo Request::current()->controller() == 'users' ? 'active' : null ?>">
-            <?php echo Html::anchor('manager/users', 'Usuários') ?>
-          </li>          
+        <ul class="nav">          
           <?php foreach(Kohana::$config->load('manager.menu') as $item): ?>
+          <?php if(count($item['roles']) == 0 || (count($item['roles']) > 0 && Auth::instance()->logged_in($item['roles']))): ?>
           <li class="<?php echo (count($item['itens']) > 0) ? 'dropdown' : '' ?> <?php echo Request::current()->controller() == $item['controller'] ? 'active' : '' ?>">
-            <?php if(count($item['itens']) > 0): ?>
+            <?php if(count($item['itens']) > 0 ): ?>
               <?php echo Html::anchor('#', $item['title'] . '<b class= "caret"></b>', array('class' => 'dropdown-toggle', 'data-toggle' => 'dropdown')); ?>
               <ul class="dropdown-menu">
                 <?php foreach($item['itens'] as $subitem): ?>
@@ -41,6 +36,7 @@
               <?php echo Html::anchor($item['url'], $item['title']); ?>
             <?php endif; ?>
           </li>
+          <?php endif; ?>
           <?php endforeach; ?>
         </ul>
         <ul class="nav pull-right">
