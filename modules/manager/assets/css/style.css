@@ -11,3 +11,6 @@
 .sessions input[type=password]{
   width:250px;
 }
+.pagination{
+  text-align: center;
+}
