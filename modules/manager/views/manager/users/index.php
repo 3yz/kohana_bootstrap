@@ -29,9 +29,9 @@
               <?php 
                 echo Html::anchor(
                   'manager/users/edit/'.$user->id, 
-                  'Alterar',
+                  '<i class="icon-edit"></i>',
                   array(
-                    'class' => 'icon-edit',
+                    'class' => 'btn btn-small',
                     'title' => 'Alterar'
                   )
                 ) 
@@ -39,9 +39,9 @@
               <?php 
                 echo Html::anchor(
                   'manager/users/delete/'.$user->id, 
-                  'Excluir', 
+                  '<i class="icon-remove"></i>', 
                   array(
-                    'class' => 'delete icon-remove',
+                    'class' => 'delete btn btn-small',
                     'title' => 'Excluir'
                   )
                 ) 
