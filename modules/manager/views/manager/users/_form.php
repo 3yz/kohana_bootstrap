@@ -1,4 +1,10 @@
 <fieldset>
+  <div class="control-group <?php echo (!is_null($user->errors) && !is_null($user->errors->on('name'))) ? 'error' : ''; ?>">
+    <label for="user_name">Nome</label>
+    <?php echo Form::input('name', $user->name, array('id' => 'user_name', 'class' => 'input-xlarge')) ?>
+    <span class="help-block">Campo obrigatório. Máx. 255 caracteres</span>
+  </div>
+
   <div class="control-group <?php echo (!is_null($user->errors) && !is_null($user->errors->on('email'))) ? 'error' : ''; ?>">
     <label for="user_email">E-mail</label>
     <?php echo Form::input('email', $user->email, array('id' => 'user_email', 'class' => 'input-xlarge')) ?>

@@ -69,6 +69,7 @@ class Controller_Manager_Users extends Controller_Manager_Application {
     if($this->request->method() == Request::POST)
     {
       $user = $user->create_user(
+        $this->request->post('name'),
         $this->request->post('username'),
         $this->request->post('password'),
         $this->request->post('password_confirm'),
@@ -131,6 +132,7 @@ class Controller_Manager_Users extends Controller_Manager_Application {
     {
       $user = $user->update_user(
         $this->request->param('id'),
+        $this->request->post('name'),
         $this->request->post('username'),
         $this->request->post('password'),
         $this->request->post('password_confirm'),
@@ -156,7 +158,7 @@ class Controller_Manager_Users extends Controller_Manager_Application {
   
   public function action_delete(){
     $user = User::find($this->request->param('id'));
-    if($benefit->delete()){
+    if($user->delete()){
       Notice::add(Notice::INFO, 'Item excluído com sucesso');
     }
 

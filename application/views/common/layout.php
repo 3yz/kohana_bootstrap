@@ -13,7 +13,7 @@
 
   <?php echo Html::script('public/js/libs/modernizr-2.5.3.min.js'); ?>
 </head>
-<body>
+<body id="<?php echo Request::current()->controller() ?>" class="<?php echo Request::current()->action(); ?>" data-root-url="<?php echo Url::base(TRUE) ?>">
   <!--[if lt IE 7]><p class=chromeframe>Your browser is <em>ancient!</em> <a href="http://browsehappy.com/">Upgrade to a different browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to experience this site.</p><![endif]-->
   <header>
 

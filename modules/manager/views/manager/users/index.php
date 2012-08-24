@@ -11,20 +11,22 @@
     <?php echo Form::hidden('action') ?>
     <table class="table table-striped">
       <thead>
-        <th class='select'><input type="checkbox" id='check_all'></th>
-        <th class='id'>#</th>
-        <th class='username'>Usuário</th>
-        <th class='E-mail'>E-mail</th>
-        <th class='actions'>&nbsp;</th>
+        <th class="select"><input type="checkbox" id='check_all'></th>
+        <th class="id">#</th>
+        <th class="name">Nome</th>
+        <th class="username">Usuário</th>
+        <th class="E-mail">E-mail</th>
+        <th class="actions">&nbsp;</th>
       </thead>
       <tbody>
         <?php foreach ($users as $user): ?>
-          <tr class='link' data-link='<?php echo Url::site('manager/users/edit/'.$user->id) ?>'>
-            <td class='select'><?php echo Form::checkbox('id[]', $user->id) ?></td>
-            <td class='id'><?php echo $user->id ?></td>
-            <td class='username'><?php echo $user->username ?></td>
-            <td class='email'><?php echo $user->email ?></td>
-            <td class='actions'>
+          <tr class="link" data-link="<?php echo Url::site('manager/users/edit/'.$user->id) ?>">
+            <td class="select"><?php echo Form::checkbox('id[]', $user->id) ?></td>
+            <td class="id"><?php echo $user->id ?></td>
+            <td class="name"><?php echo $user->name ?></td>
+            <td class="username"><?php echo $user->username ?></td>
+            <td class="email"><?php echo $user->email ?></td>
+            <td class="actions">
               <?php //echo Html::anchor('manager/users/show/'.$user->id, Html::image('assets/imgs/show-24.png', array('alt' => 'visualizar'))) ?>
               <?php 
                 echo Html::anchor(

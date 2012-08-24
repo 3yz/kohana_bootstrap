@@ -16,12 +16,14 @@ class User extends Arm {
   );  
   
   static $validates_presence_of = array(
+    array('name'),
     array('username'),
     array('email'),
     array('password')
   );
   
   static $validates_size_of = array(
+    array('name', 'maximum' => 255),
     array('username', 'within' => array(4,32)),
     array('email', 'within' => array(4,127)),
     array('password', 'minimum' => 8)
@@ -185,9 +187,10 @@ class User extends Arm {
    * @param string  role user
    * @return  mixed Model if success, Array if validation failed.
    */
-  public static function create_user($username, $password, $password_confirm, $email, $role = NULL, $activate = TRUE)
+  public static function create_user($name, $username, $password, $password_confirm, $email, $role = NULL, $activate = TRUE)
   {
     $user = User::create(array(
+      'name' => $name,
       'username' => $username,
       'password' => $password,
       'email' => $email,
@@ -212,9 +215,10 @@ class User extends Arm {
     return $user;
   }
 
-  public static function update_user($id, $username, $password, $password_confirm, $email, $role = NULL, $activate = TRUE)
+  public static function update_user($id, $name, $username, $password, $password_confirm, $email, $role = NULL, $activate = TRUE)
   {
     $user = User::find($id);
+    $user->name = $name;
     $user->username = $username;
     $user->email = $email;
     if (!empty($password)){
