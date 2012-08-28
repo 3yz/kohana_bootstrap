@@ -22,6 +22,9 @@ class Form extends Kohana_Form{
 
     foreach ($collection as $option) {
       $options[$option->$config['value']] = $option->$config['text'];
+      if($base_config['value'] != 'id' && $options[$option->$config['value']] == $selected){
+        $selected = $options['id'];
+      }
     }
 
     return Form::select($name, $options, $selected, $attributes);
