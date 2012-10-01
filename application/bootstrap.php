@@ -98,6 +98,7 @@ Kohana::init(array(
   'base_url'   => $base_url,
   'index_file' => false, 
   'profile'    => $profile,
+  'error' => (Kohana::$environment != Kohana::DEVELOPMENT)
 ));
 
 /**
