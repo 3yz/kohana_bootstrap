@@ -25,3 +25,6 @@
 [submodule "modules/activerecord"]
 	path = modules/activerecord
 	url = https://github.com/3yz/kohana-activerecord.git
+[submodule "modules/mailer"]
+	path = modules/mailer
+	url = https://github.com/kanema/Mailer.git
