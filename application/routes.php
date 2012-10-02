@@ -5,7 +5,6 @@ Route::set('error', 'error/<action>(/<message>)', array('action' => '[0-9]++', '
         'controller' => 'error'
     ));
 
-
 Route::set('default', '(<controller>(/<action>(/<id>)))')
     ->defaults(array(
       'controller' => 'home',

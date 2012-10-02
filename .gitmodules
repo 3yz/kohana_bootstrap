@@ -22,9 +22,6 @@
 [submodule "modules/notice"]
 	path = modules/notice
 	url = https://github.com/loonies/kohana-notice.git
-[submodule "modules/mailer"]
-	path = modules/mailer
-	url = https://github.com/Austinb/Mailer.git
 [submodule "modules/activerecord"]
 	path = modules/activerecord
 	url = https://github.com/3yz/kohana-activerecord.git
