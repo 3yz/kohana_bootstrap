@@ -17,17 +17,48 @@
  *
  */
 
-return array
-(
-  'default' => array(
-  	'transport'	=> 'smtp',
-  	'options'	=> array(
-  	  'hostname'   => '',
-  	  'username'   => '',
-  	  'password'   => '',
-  	  'port'       => '',
-  	  'encryption' => '',
- 	),
-  )
-);
-
+if (Kohana::$environment == Kohana::DEVELOPMENT)
+{
+  return array (
+    'default' => array(
+      'transport'	=> 'smtp',
+       'options'	=> array(
+        'hostname'   => '',
+        'username'   => '',
+        'password'   => '',
+        'port'       => '',
+        'encryption' => '',
+      ),
+    )
+  ); 
+}
+elseif (Kohana::$environment == Kohana::TESTING) 
+{
+  return array (
+    'default' => array(
+      'transport'	=> 'smtp',
+       'options'	=> array(
+        'hostname'   => '',
+        'username'   => '',
+        'password'   => '',
+        'port'       => '',
+        'encryption' => '',
+      ),
+    )
+  ); 
+} 
+else 
+{
+  return array (
+    'default' => array(
+      'transport'	=> 'smtp',
+       'options'	=> array(
+        'hostname'   => '',
+        'username'   => '',
+        'password'   => '',
+        'port'       => '',
+        'encryption' => '',
+      ),
+    )
+  ); 
+}
