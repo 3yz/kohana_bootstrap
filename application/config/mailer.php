@@ -17,8 +17,7 @@
  *
  */
 
-if (Kohana::$environment == Kohana::DEVELOPMENT)
-{
+if (Kohana::$environment == Kohana::DEVELOPMENT) {
   return array (
     'default' => array(
       'transport'	=> 'smtp',
@@ -31,9 +30,7 @@ if (Kohana::$environment == Kohana::DEVELOPMENT)
       ),
     )
   ); 
-}
-elseif (Kohana::$environment == Kohana::TESTING) 
-{
+} elseif (Kohana::$environment == Kohana::TESTING) {
   return array (
     'default' => array(
       'transport'	=> 'smtp',
@@ -46,9 +43,7 @@ elseif (Kohana::$environment == Kohana::TESTING)
       ),
     )
   ); 
-} 
-else 
-{
+} else {
   return array (
     'default' => array(
       'transport'	=> 'smtp',
