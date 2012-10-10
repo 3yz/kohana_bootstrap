@@ -1,12 +1,7 @@
-<div class="navigation">
-  <ul class='clearfix'>
-    <li><?php echo Html::anchor('manager', 'Dashboard') ?></li>
-  </ul>
+<br />
+<br />
+<br />  
+<div class="hero-unit">
+  <h1>Dashboard</h1>
+  <p>Olá <strong><?php echo Auth::instance()->get_user()->name; ?></strong>! Seja bem-vindo ao sistema de gerenciamento do site.</p>  
 </div>
-<section>
-  <?php echo Notice::render() ?>
-  <div class="dashboard-list">
-
-  </div>
-</section>
-
