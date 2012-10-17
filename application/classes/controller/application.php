@@ -2,7 +2,7 @@
 
 class Controller_Application extends Controller_Template {
 
-  public $template = 'common/layout';
+  public $template = 'templates/layout';
   public $benchmark = null;
 
   public function before()
