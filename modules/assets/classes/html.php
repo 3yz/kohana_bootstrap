@@ -27,36 +27,4 @@ class HTML extends Kohana_HTML {
     return $file;
   }
 
-  public static function recursive_list($list)
-  {
-    if (is_array($list)) {
-      echo '<ul>';
-      foreach ($list as $key => $value) {
-        if (is_array($value)) 
-        {
-          echo "<li class='folder'><span class='before'></span><span>".$key;
-          echo "</span>";
-          self::recursive_list($value);
-          echo "</li>";
-        }
-        else
-        {
-          if (preg_match('/\.pdf/', $value)) 
-          {
-            $arr_path = explode('/', $value);
-            $file_name = end($arr_path);
-            $path = substr($value, strpos($value, 'public/'));
-
-            echo "<li class='file'><a target='_blank' href='".Url::base(TRUE).$path."'><span class='before'></span>" . $file_name . '</a></li>';  
-          }
-          else
-          {
-            echo "<li>" . $value . '</li>';
-          }
-        }
-      }
-      echo '</ul>';
-    }
-  }
-
 } // End HTML

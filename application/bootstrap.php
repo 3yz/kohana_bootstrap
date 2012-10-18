@@ -115,11 +115,12 @@ Kohana::$config->attach(new Config_File);
  * Enable modules. Modules are referenced by a relative or absolute path.
  */
 Kohana::modules(array(
-  'auth'         => MODPATH.'auth',
-  'activerecord' => MODPATH.'activerecord',
-  'database'     => MODPATH.'database',
-  'manager'      => MODPATH.'manager',
-  'notice'       => MODPATH.'notice',
+  'assets'         => MODPATH.'assets',
+  'auth'           => MODPATH.'auth',
+  'activerecord'   => MODPATH.'activerecord',
+  'database'       => MODPATH.'database',
+  'kohana-manager' => MODPATH.'kohana-manager',
+  'notice'         => MODPATH.'notice',
 ));
 
 // Define global paths
