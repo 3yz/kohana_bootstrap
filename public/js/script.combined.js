@@ -1,6 +1,6 @@
-// <!--#include file="libs/jquery.min.js" -->
-// <!--#include file="libs/underscore.min.js" -->
-// <!--#include file="plugins/console.js" -->
+<!--#include file="libs/jquery.min.js" -->
+<!--#include file="libs/underscore.min.js" -->
+<!--#include file="plugins/console.js" -->
 
 APPLICATION = {
   rootUrl: null,
