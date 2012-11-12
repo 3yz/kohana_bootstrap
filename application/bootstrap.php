@@ -30,7 +30,7 @@ date_default_timezone_set('America/Sao_Paulo');
  * @see  http://kohanaframework.org/guide/using.configuration
  * @see  http://php.net/setlocale
  */
-setlocale(LC_ALL, 'en_US.utf-8');
+setlocale(LC_ALL, 'pt_BR.utf-8');
 
 /**
  * Enable the Kohana auto-loader.
