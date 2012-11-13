@@ -28,3 +28,6 @@
 [submodule "modules/kohana-manager"]
 	path = modules/kohana-manager
 	url = https://github.com/3yz/kohana-manager.git
+[submodule "modules/mailer"]
+	path = modules/mailer
+	url = https://github.com/3yz/Mailer.git
