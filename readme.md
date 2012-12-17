@@ -1,4 +1,4 @@
-Kohana bootstrap
+Kohana Bootstrap v1.1
 ================
 
-Simple kohana 3.2 bootstrap with some modifications to make easier to start each new project
+Kohana 3.3 + HTML5Boilerplate starter.
