@@ -74,6 +74,21 @@ if (isset($_SERVER['KOHANA_ENV']))
 	Kohana::$environment = constant('Kohana::'.strtoupper($_SERVER['KOHANA_ENV']));
 }
 
+// set $base_url. Development as default.
+switch (Kohana::$environment) {
+	case Kohana::TESTING:
+		$base_url = '/';
+		break;
+
+	case Kohana::PRODUCTION:
+		$base_url = '/';
+		break;
+	
+	default:
+		$base_url = '/3yz/kohana_bootstrap/';
+		break;
+}
+
 /**
  * Initialize Kohana, setting the default options.
  *
@@ -90,7 +105,7 @@ if (isset($_SERVER['KOHANA_ENV']))
  * - boolean  expose      set the X-Powered-By header                        FALSE
  */
 Kohana::init(array(
-	'base_url'   => '/kohana/',
+	'base_url'   => $base_url,
 ));
 
 /**
@@ -112,11 +127,13 @@ Kohana::modules(array(
 	// 'codebench'  => MODPATH.'codebench',  // Benchmarking tool
 	// 'database'   => MODPATH.'database',   // Database access
 	// 'image'      => MODPATH.'image',      // Image manipulation
-	// 'minion'     => MODPATH.'minion',     // CLI Tasks
+	'minion'     => MODPATH.'minion',     // CLI Tasks
 	// 'orm'        => MODPATH.'orm',        // Object Relationship Mapping
 	// 'unittest'   => MODPATH.'unittest',   // Unit testing
 	// 'userguide'  => MODPATH.'userguide',  // User guide and API documentation
 	));
+
+Cookie::$salt = md5($base_url);
 
 /**
  * Set the routes. Each route must have a minimum of a name, a URI and a set of
@@ -124,6 +141,6 @@ Kohana::modules(array(
  */
 Route::set('default', '(<controller>(/<action>(/<id>)))')
 	->defaults(array(
-		'controller' => 'welcome',
+		'controller' => 'pages',
 		'action'     => 'index',
 	));

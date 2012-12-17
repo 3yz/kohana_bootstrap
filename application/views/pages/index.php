@@ -1,0 +1,1 @@
+<p>Hello from pages#index</p>
