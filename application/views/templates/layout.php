@@ -19,7 +19,17 @@
         <![endif]-->
 
         <div id="main">
-            <?php echo $content ?>
+            <header>
+                <h1>HTML Ipsum Presents</h1>    
+            </header>
+                
+            <section>
+                <?php echo $content ?>    
+            </section>
+            
+            <footer>
+                <small>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</small>
+            </footer>
         </div>
 
         <?php echo HTML::script('public/js/main.combined.js') ?>
