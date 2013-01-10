@@ -19,7 +19,7 @@ Deployment
 
 **1º passo**
 
-Colocar o arquivo install.php (em anexo) dentro do servidor e acessá-lo para ver se o mesmo tem todos os requisitos necessários para rodar o sistema.
+Colocar o arquivo install.php dentro do servidor e acessá-lo para ver se o mesmo tem todos os requisitos necessários para rodar o sistema.
 
 **2º passo**
 
